@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script type="text/JavaScript" src="polycrop.js"></script> 
+
+    <script type="text/Javascript">
+      function test(points) {
+        var granulation = parseInt(document.getElementById('granulation').value);
+        var el = document.getElementById('textDiv');
+        Polycrop.crop(el, granulation, points);
+      }
+    </script>
+ 
+  </head>
+  <body>
+
+<div style="float: left;">
+
+<div id="textDiv" style="width: 500px; border: solid 1px black; line-height: 20px; font-size: 16px; text-align: justify;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo, nulla eu aliquet pharetra, ligula lacus blandit metus, nec scelerisque sapien enim eget libero. Donec ornare nunc lacinia odio commodo at ullamcorper dui placerat. Nunc quis sem nec urna faucibus vulputate eget vel justo. Suspendisse ac augue erat. Cras gravida dolor in nisl aliquet eu sollicitudin diam ullamcorper. Praesent id justo turpis. Pellentesque ornare sagittis purus sed tempor. Mauris quis ligula diam. Donec posuere eros tempus ante vulputate ac pellentesque diam pulvinar. Curabitur mollis aliquet interdum.<br/><br/>
+
+Vivamus sagittis vehicula metus ac tincidunt. Sed euismod dui nec erat commodo volutpat vulputate augue tempor. Duis purus tortor, pretium eleifend ultrices ac, egestas id lacus. Ut accumsan placerat quam, in interdum ante lacinia nec. Sed hendrerit tellus sit amet mi facilisis laoreet. In ut consequat erat. Aliquam ante lorem, accumsan varius suscipit eget, pellentesque eu lacus. Cras orci ante, elementum eu consectetur vel, auctor eget lectus. Proin vel auctor elit. Fusce porttitor metus vel velit blandit ut lobortis metus condimentum. Nullam rhoncus est pretium ante lacinia vitae sollicitudin urna porttitor.
+
+</div>
+
+</div>
+
+<div style="float: left; width: 180px; border: solid 1px black; padding: 0px; margin: 0px; margin-left: 20px;">
+
+  <div style="float: left;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 100px; background-color: gray;" version="1.1">
+      <polygon points="2,0 20,10 0,100, 50,100 50,50 22,0" fill="#ff0000" stroke="#000000" stroke-width="0"/>
+    </svg> <br/>
+    <input type="button" value="crop" onclick="test([[20,0], [200,100], [0,1000], [500,1000], [500,500], [220,0]]);"/>
+  </div>
+
+  <div style="float: left;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 100px; background-color: gray;" version="1.1">
+      <polygon points="0,0 20,100 35,100 50,0" fill="#ff0000" stroke="#000000" stroke-width="0"/>
+    </svg> <br/>
+    <input type="button" value="crop" onclick="test([[0,0], [200,1000], [350,1000], [500,0]]);"/>
+  </div>
+
+  <div style="float: left;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 100px; background-color: gray;" version="1.1">
+      <polygon points="0,0 20,10 0,30 10,40 5,50 25,75 0,100 50,100 50,75 20,40 50,0" fill="#ff0000" stroke="#000000" stroke-width="0"/>
+    </svg> <br/>
+    <input type="button" value="crop" onclick="test([[0,0], [200,100], [0,300], [100,400], [50,500], [250,750], [0,1000], [500,1000], [500,750], [200,400], [500,0]]);"/>
+  </div>
+
+  <div style="float: left; clear: left; margin-top: 20px;">
+    Granulation: <input type="number" style="width: 40px;" min="1", max="100", step="1" value="2" id="granulation"> <br/>
+    <input type="button" value="uncrop" onclick="Polycrop.uncrop(document.getElementById('textDiv'));"/>
+  </div>
+</div>
+
+
+  </body>
+</html>
